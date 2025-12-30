@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/YOUR_ORG/YOUR_REPO/main/public/brand/logo.png" width="72" />
-</p>
-
 <h1 align="center">Vanta SDK</h1>
 
 <p align="center">
@@ -9,111 +5,115 @@
 </p>
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/status-public%20beta-blue" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/license-MIT-green" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/typescript-first-3178c6" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/http-402-black" /></a>
+  <img src="https://img.shields.io/badge/status-public%20beta-2563eb" />
+  <img src="https://img.shields.io/badge/http-402-black" />
+  <img src="https://img.shields.io/badge/typescript-first-3178c6" />
+  <img src="https://img.shields.io/badge/ai-builder-free-16a34a" />
+  <img src="https://img.shields.io/badge/license-MIT-22c55e" />
 </p>
 
 ---
 
-> **Vanta SDK** enables developers to monetize APIs, agents, and services directly at the HTTP protocol layer using **HTTP 402 (Payment Required)**.
+> 🟦 **Vanta SDK** is a protocol-level monetization framework that enables developers to charge for APIs, agents, and applications using **HTTP 402 (Payment Required)**.
 >
-> No payment processors.  
-> No subscriptions.  
-> No billing dashboards.  
+> **No payment processors**  
+> **No subscriptions**  
+> **No billing dashboards**  
 >
-> Just **pure protocol-level payments**.
+> Just **native, machine-readable payments enforced at the HTTP layer**.
 
 ---
 
-## ✨ What is Vanta?
+## 🧠 What is Vanta?
 
-Vanta is a developer-first SDK that turns **HTTP 402** into a first-class payment primitive.
+Vanta allows developers to enforce payments **exactly where access is enforced** — at the request boundary.
 
-Instead of building complex billing infrastructure, Vanta lets you:
-- Enforce payments at the request level
-- Charge per API call or agent action
-- Issue access tokens and quotas programmatically
-- Operate entirely headless (no UI required)
+Instead of managing users, plans, invoices, or external billing infrastructure, Vanta embeds monetization directly into standard HTTP flows.
 
-Vanta is built for **modern infrastructure**:
+Vanta is built for:
+- APIs & developer platforms
+- AI agents and autonomous tools
+- Serverless & edge runtimes
+- Internal service billing
+- Headless infrastructure
+
+---
+
+## 🔑 Core Principle
+
+### HTTP 402 as a First-Class Primitive
+
+Vanta treats `402 Payment Required` as **infrastructure**, not an error.
+
+Client → Request
+Server → 402 Payment Challenge
+Client → Resolve Payment
+Server → Verify Receipt
+Server → Grant Access
+
+yaml
+Copy code
+
+All payment state is handled **programmatically** using headers and signed receipts.
+
+No redirects.  
+No UI flows.  
+No checkout pages.
+
+---
+
+## 💸 Programmatic Payments
+
+Payments in Vanta are:
+
+- Headless
+- Deterministic
+- Machine-verifiable
+- UI-agnostic
+
+This makes Vanta ideal for:
 - APIs
 - AI agents
-- Serverless platforms
-- Edge runtimes
-- Developer tools
-
----
-
-## 🧠 Core Concepts
-
-### 🔑 HTTP 402 as Infrastructure
-
-Vanta treats `402 Payment Required` as part of the protocol — not an error.
-
-**Request flow:**
-
-1. Client requests a protected resource  
-2. Server responds with a **402 payment challenge**  
-3. Client resolves payment  
-4. Server verifies receipt  
-5. Access is granted via token or quota  
-
-All of this happens **inline via HTTP headers**.
-
----
-
-### 💸 Programmatic Payments
-
-Payments are:
-- Machine-readable
-- Header-based
-- Fully automated
-
-There are **no redirects**, **no checkout pages**, and **no accounts required**.
-
-Perfect for:
-- APIs
 - CLIs
-- Agents
 - Automation pipelines
 - Background jobs
+- Internal platforms
 
 ---
 
-### 🧾 Access Tokens & Metering
+## 🧾 Access Control & Metering
 
 After payment, Vanta can issue:
-- Scoped access tokens
-- Quota-based usage keys
-- Time-limited credentials
+
+- 🔐 Scoped access tokens
+- 📊 Quota-based usage keys
+- ⏱️ Time-bound credentials
 
 This enables:
-- Per-request billing
-- Metered usage
-- Rate limits
-- Access revocation
+- Pay-per-request APIs
+- Metered agent actions
+- Usage-based pricing
+- Dynamic rate limiting
+- Revocable access
 
 ---
 
-## 🚀 Features
+## ✨ Feature Overview
 
-- ⚡ x402-native architecture  
-- 🧩 Middleware-first design  
-- 🟦 TypeScript-first SDK  
-- 🌐 Edge-ready  
-- 🔁 Automatic 402 handling  
-- 🔐 Receipt verification  
-- 📊 Quotas & rate limits  
-- 🔌 Framework adapters  
-- 🧱 Clean, composable APIs  
+| Category | Capabilities |
+|--------|-------------|
+| Protocol | x402-native architecture |
+| Developer UX | TypeScript-first APIs |
+| Runtime | Edge & serverless ready |
+| Middleware | Express, Next.js, Workers |
+| Payments | Automatic 402 handling |
+| Security | Receipt verification |
+| Control | Quotas & rate limits |
+| Design | Stateless by default |
 
 ---
 
-## 🧪 Example
-
-### Protect an API route with x402 payments
+## 🚀 Minimal Example
 
 ```ts
 import { VantaMiddleware } from "@vanta/sdk";
@@ -126,47 +126,54 @@ app.use(
     network: "base",
   })
 );
-Clients automatically handle 402 responses and retry once payment is resolved.
+Clients automatically resolve 402 responses and retry the request once payment is completed.
 
-🧰 Use Cases
+🧰 Common Use Cases
 Use Case	Description
 Paid APIs	Charge per request
-AI Agents	Bill per action or tool use
-Paywalled Endpoints	Gate premium routes
+AI Agents	Bill per tool or action
+Paywalled Routes	Gate premium endpoints
 Metered Services	Usage-based pricing
 Internal Platforms	Cost attribution
-Serverless Tools	No billing backend
+Developer Tools	Headless monetization
 
-🛠️ Vanta Builder (Preview)
-Vanta includes a browser-based AI Builder:
+🛠️ Vanta Builder (AI)
+Vanta Builder is a free, browser-based AI workspace for real projects.
 
-🧠 Generate, refactor, and patch code using AI
-📁 Upload or create projects
-🧩 Apply changes directly to files
-🖥️ VS-Code-style interface
-⚙️ No vendor lock-in
+Capabilities
+Upload repositories or ZIPs
 
-The builder is designed to work with real projects, not demos.
+Create new projects from scratch
 
-📦 Status
+Generate, refactor, and patch code with AI
+
+Apply changes directly to files
+
+VS-Code-style editor layout
+
+No vendor lock-in
+
+The builder is optional and does not affect SDK usage.
+
+📦 Project Status
 🟢 Public Beta
 
-APIs, naming, and features may evolve as the protocol matures.
+APIs and features may evolve as the protocol matures.
 
 🛣️ Roadmap
 Expanded framework adapters
 
-Advanced receipt verification
-
 Streaming & metered payments
+
+Advanced receipt verification
 
 Organization-level quotas
 
 Builder enhancements
 
-Extended docs & recipes
+Extended documentation & recipes
 
-🔐 Security
+🔐 Security Model
 No client-side secrets
 
 Signed payment receipts
@@ -177,25 +184,25 @@ Stateless by default
 
 Audit-friendly design
 
-📄 See the Whitepaper for the full security model.
+Full security details are covered in the Whitepaper.
 
-🧭 Philosophy
-Payments should be part of the protocol — not an afterthought.
+🧭 Design Philosophy
+Payments should live at the protocol layer.
 
 Vanta aligns monetization with HTTP semantics so developers can focus on building products, not billing systems.
 
 📄 License
 MIT License.
 
-🔗 Links
+🔗 Resources
 📘 Documentation
+
+🧠 Builder
 
 📄 Whitepaper
 
 🧾 Changelog
 
-🧠 Builder
-
 🐦 X (Twitter): https://x.com/Vantasdk
 
-<p align="center"> <b>Vanta SDK</b><br/> Protocol-native payments for modern software </p> 
+<p align="center"> <b>Vanta SDK</b><br/> Protocol-native payments for modern software </p>

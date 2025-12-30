@@ -1,68 +1,51 @@
-<h1 align="center">Vanta SDK</h1>
+# Vanta SDK
 
-<p align="center">
-  <b>x402-native payments for APIs, agents, and apps</b>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/status-public%20beta-2563eb" />
-  <img src="https://img.shields.io/badge/http-402-black" />
-  <img src="https://img.shields.io/badge/typescript-first-3178c6" />
-  <img src="https://img.shields.io/badge/ai-builder-free-16a34a" />
-  <img src="https://img.shields.io/badge/license-MIT-22c55e" />
-</p>
+**x402-native payments for APIs, agents, and apps**
 
 ---
 
-> 🟦 **Vanta SDK** is a protocol-level monetization framework that enables developers to charge for APIs, agents, and applications using **HTTP 402 (Payment Required)**.
+> **Vanta SDK** is a protocol-level monetization framework that enables developers to charge for APIs, agents, and services using **HTTP 402 (Payment Required)**.
 >
-> **No payment processors**  
-> **No subscriptions**  
-> **No billing dashboards**  
+> No payment processors  
+> No subscriptions  
+> No billing dashboards  
 >
 > Just **native, machine-readable payments enforced at the HTTP layer**.
 
 ---
 
-## 🧠 What is Vanta?
+## Overview
 
 Vanta allows developers to enforce payments **exactly where access is enforced** — at the request boundary.
 
 Instead of managing users, plans, invoices, or external billing infrastructure, Vanta embeds monetization directly into standard HTTP flows.
 
-Vanta is built for:
-- APIs & developer platforms
+Vanta is designed for:
+- APIs and developer platforms
 - AI agents and autonomous tools
-- Serverless & edge runtimes
+- Serverless and edge runtimes
 - Internal service billing
 - Headless infrastructure
 
 ---
 
-## 🔑 Core Principle
+## Core Principle
 
-### HTTP 402 as a First-Class Primitive
+### HTTP 402 as Infrastructure
 
-Vanta treats `402 Payment Required` as **infrastructure**, not an error.
+Vanta treats `402 Payment Required` as a **first-class protocol primitive**, not an error state.
 
-Client → Request
-Server → 402 Payment Challenge
-Client → Resolve Payment
-Server → Verify Receipt
-Server → Grant Access
 
-yaml
-Copy code
+All payment data is exchanged programmatically via headers and signed receipts.
 
-All payment state is handled **programmatically** using headers and signed receipts.
-
-No redirects.  
-No UI flows.  
-No checkout pages.
+There are:
+- no redirects
+- no checkout pages
+- no UI dependencies
 
 ---
 
-## 💸 Programmatic Payments
+## Programmatic Payments
 
 Payments in Vanta are:
 
@@ -71,7 +54,7 @@ Payments in Vanta are:
 - Machine-verifiable
 - UI-agnostic
 
-This makes Vanta ideal for:
+This makes Vanta suitable for:
 - APIs
 - AI agents
 - CLIs
@@ -81,13 +64,13 @@ This makes Vanta ideal for:
 
 ---
 
-## 🧾 Access Control & Metering
+## Access Control & Metering
 
 After payment, Vanta can issue:
 
-- 🔐 Scoped access tokens
-- 📊 Quota-based usage keys
-- ⏱️ Time-bound credentials
+- Scoped access tokens
+- Quota-based usage keys
+- Time-bound credentials
 
 This enables:
 - Pay-per-request APIs
@@ -98,22 +81,22 @@ This enables:
 
 ---
 
-## ✨ Feature Overview
+## Feature Overview
 
-| Category | Capabilities |
-|--------|-------------|
-| Protocol | x402-native architecture |
-| Developer UX | TypeScript-first APIs |
-| Runtime | Edge & serverless ready |
-| Middleware | Express, Next.js, Workers |
-| Payments | Automatic 402 handling |
-| Security | Receipt verification |
-| Control | Quotas & rate limits |
-| Design | Stateless by default |
+| Category        | Description                          |
+|-----------------|--------------------------------------|
+| Protocol        | x402-native architecture              |
+| Developer UX    | TypeScript-first APIs                 |
+| Runtime         | Edge and serverless ready             |
+| Middleware      | Express, Next.js, Workers             |
+| Payments        | Automatic 402 handling                |
+| Security        | Receipt verification                  |
+| Control         | Quotas and rate limits                |
+| Design          | Stateless by default                  |
 
 ---
 
-## 🚀 Minimal Example
+## Minimal Example
 
 ```ts
 import { VantaMiddleware } from "@vanta/sdk";
@@ -126,9 +109,7 @@ app.use(
     network: "base",
   })
 );
-Clients automatically resolve 402 responses and retry the request once payment is completed.
-
-🧰 Common Use Cases
+Common Use Cases
 Use Case	Description
 Paid APIs	Charge per request
 AI Agents	Bill per tool or action
@@ -136,11 +117,12 @@ Paywalled Routes	Gate premium endpoints
 Metered Services	Usage-based pricing
 Internal Platforms	Cost attribution
 Developer Tools	Headless monetization
+Vanta Builder (AI)
 
-🛠️ Vanta Builder (AI)
 Vanta Builder is a free, browser-based AI workspace for real projects.
 
-Capabilities
+Capabilities:
+
 Upload repositories or ZIPs
 
 Create new projects from scratch
@@ -155,15 +137,17 @@ No vendor lock-in
 
 The builder is optional and does not affect SDK usage.
 
-📦 Project Status
-🟢 Public Beta
+Project Status
+
+Public Beta
 
 APIs and features may evolve as the protocol matures.
 
-🛣️ Roadmap
+Roadmap
+
 Expanded framework adapters
 
-Streaming & metered payments
+Streaming and metered payments
 
 Advanced receipt verification
 
@@ -171,9 +155,10 @@ Organization-level quotas
 
 Builder enhancements
 
-Extended documentation & recipes
+Extended documentation and recipes
 
-🔐 Security Model
+Security Model
+
 No client-side secrets
 
 Signed payment receipts
@@ -184,25 +169,22 @@ Stateless by default
 
 Audit-friendly design
 
-Full security details are covered in the Whitepaper.
+Full security details are covered in the whitepaper.
 
-🧭 Design Philosophy
+Philosophy
+
 Payments should live at the protocol layer.
 
 Vanta aligns monetization with HTTP semantics so developers can focus on building products, not billing systems.
 
-📄 License
+License
+
 MIT License.
 
-🔗 Resources
-📘 Documentation
+Links
 
-🧠 Builder
-
-📄 Whitepaper
-
-🧾 Changelog
-
-🐦 X (Twitter): https://x.com/Vantasdk
-
-<p align="center"> <b>Vanta SDK</b><br/> Protocol-native payments for modern software </p>
+Documentation
+Builder
+Whitepaper
+Changelog
+X (Twitter): https://x.com/Vantasdk

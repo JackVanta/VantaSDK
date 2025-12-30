@@ -195,8 +195,9 @@ MIT License.
 
 🔗 Links
 
-Documentation
-Builder
-Whitepaper
-Changelog
+Vanta: https://www.vantasdk.com/
+Documentation: https://www.vantasdk.com/docs
+Builder: https://www.vantasdk.com/builder
+Whitepaper: https://www.vantasdk.com/whitepaper/abstract
+Changelog: https://www.vantasdk.com/changelog
 X (Twitter): https://x.com/Vantasdk
